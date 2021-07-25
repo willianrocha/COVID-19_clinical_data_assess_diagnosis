@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 GRAY4 = '#646369'
 GRAY5 = '#76787B'
@@ -25,6 +26,8 @@ def axis_presentation(ax, axis_fontsize: int = 10, grid: bool = True, ylabel: st
     to_color(ax, axis_fontsize, GRAY5, grid)
     if ylabel is not None:
         ax.set_ylabel(ylabel, fontsize = 14, color = GRAY5)
+    else:
+        ax.set_ylabel('', fontsize = 14, color = GRAY5)
     if ylabel is not None:
         ax.set_xlabel(xlabel, fontsize = 14, color = GRAY5)
     if not legend:
@@ -39,6 +42,13 @@ def presentation(fig, ax, y_label, title: str, subtitle: str = None, title_fonts
         for idx in range(length_axis):
             axis_presentation(ax[idx], ylabel=y_label[idx], **kwargs)
     plt.suptitle(suptitle_formatter(title, subtitle), fontsize = title_fontsize, color = title_color, y=fig.subplotpars.top+title_position, x=fig.subplotpars.left, ha='left')
+    
+def legend_formatter(ax, color: list, label: list, bbox: set, title: str, frame: bool = False, loc: str = 'upper right'):
+    patches = [mpatches.Patch(facecolor=c, edgecolor=GRAY5, label=l) for c, l in zip(color, label)]
+    plt.sca(ax)
+    leg = plt.legend(handles=patches, loc=loc, bbox_to_anchor=bbox,
+               frameon=frame, labelcolor=GRAY5, title=suptitle_formatter(title))
+    plt.setp(leg.get_title(), color=GRAY4)
 
 def list_high_correlate_columns(df, threashold = 0.9):
     cor_matrix = df.corr().abs()
