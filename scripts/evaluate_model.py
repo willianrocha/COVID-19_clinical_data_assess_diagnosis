@@ -2,6 +2,9 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import RepeatedStratifiedKFold, cross_validate
 from sklearn.metrics import accuracy_score, classification_report, plot_confusion_matrix
+import warnings
+warnings.filterwarnings('ignore')
+warnings.simplefilter('ignore')  
 
 def train_evaluate_classifier(clf, x, y, x_train, y_train, x_test, y_test, skip_fit = False):
     np.random.seed(73246)
