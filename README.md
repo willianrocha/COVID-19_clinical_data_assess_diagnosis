@@ -1,3 +1,4 @@
+[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/willianvrocha/)
 # COVID-19 - Análise de dados clínicos para diagnóstico da necessidade de UTI
 
 1. [Resumo](#summary)
@@ -25,6 +26,7 @@ Aqui, consolidademos todo o trabalho feito de modo que podemos utilizar a mesma 
 <a name="conclusion"></a>
 # Conclusão
 Como conclusão temos um modelo com F1-Score de 0.7 e a seguinte matrix de confusão.
+<p align="center">
+  <img src="https://github.com/willianrocha/COVID-19_clinical_data_assess_diagnosis/raw/main/img/confusion_matrix.png">
+</p>
 
-
-EDA and ML proposal for COVID-19 - Clinical Data to assess diagnosis from Sírio-Linabanês Hosptal - https://www.kaggle.com/S%C3%ADrio-Libanes/covid19
